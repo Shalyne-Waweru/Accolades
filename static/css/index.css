@@ -16,13 +16,18 @@
 }
 
 .logo img {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
 }
 
 .logo p {
   color: #FFC910;
   font-weight: bold;
+  margin-top: -10px;
+}
+
+.form-inline {
+  margin-left: 100px;
 }
 
 .form-inline button {
@@ -42,7 +47,7 @@
 }
 
 .auth-actions .fas {
-  color: #B5903F;
+  color: #FFC910;
   font-size: 24px;
   margin-right: 40px;
   cursor: pointer;
@@ -100,4 +105,114 @@
   margin-top: 20px;
   margin-bottom: 20px;
   cursor: pointer;
+}
+
+/* Recent Post Info Section */
+.recent-post img{
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 70%;
+  opacity: 0.9;
+}
+
+.left-section {
+  padding-top: 50px;
+  padding-left: 100px;
+  color: white;
+  position: relative;
+  z-index: 2;
+}
+
+.recent-post .container {
+  color: white;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  height: 100%;
+}
+
+.site-info p {
+  font-size: 20px;
+}
+
+.gold-txt {
+  color: #FFC910;
+  font-weight: bold;
+}
+
+.ratings {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.rates-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 30px;
+}
+
+.design-circle {
+  border-radius: 50%;
+  padding-top: 23px;
+  width: 70px;
+  height: 70px;
+  border-top: 3px solid transparent;
+  border-left: 3px solid red;
+  border-right: 3px solid red;
+  border-bottom: 3px solid red;
+  transform: rotate(290deg);
+}
+
+.usability-circle {
+  border-radius: 50%;
+  padding-top: 23px;
+  width: 70px;
+  height: 70px;
+  border-top: 3px solid transparent;
+  border-left: 3px solid #0082BC;
+  border-right: 3px solid #0082BC;
+  border-bottom: 3px solid #0082BC;
+  transform: rotate(290deg);
+}
+
+.content-circle {
+  border-radius: 50%;
+  padding-top: 23px;
+  width: 70px;
+  height: 70px;
+  border-top: 3px solid transparent;
+  border-left: 3px solid #71A84F;
+  border-right: 3px solid #71A84F;
+  border-bottom: 3px solid #71A84F;
+  transform: rotate(290deg);
+}
+
+.visit-btn {
+  position: absolute;
+  z-index: 2;
+  background-color: transparent;
+  padding: 5px;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin-top: 30px;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 100px;
+}
+
+.visit-btn a, .visit-btn a:visited {
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.visit-btn a:hover {
+  color: white;
+  text-decoration: none;
 }

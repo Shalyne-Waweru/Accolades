@@ -1,1 +1,46 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="recent-post">
+  <img src="{% static 'images/sample_site.jpg' %}" alt="Background Image">
+
+  <div class="left-section">
+    <p><strong>Site of the Day</strong></p>
+    <p>Posted : 08/04/2022</p>
+  </div>
+
+  <div class="container">
+
+    <div class="site-info">
+      <h2><strong>Site Name</strong></h2>
+      <p>BY <span class="gold-txt">SHALYNE</span> WITH <span class="gold-txt">8.84</span></p>
+    </div>
+
+    <div class="ratings">
+
+      <div class="rates-info">
+        <p class="design-circle"><strong>7.84</strong></p>
+        <p><strong>DESIGN</strong></p>
+      </div>
+
+      <div class="rates-info">
+        <p class="usability-circle"><strong>7.74</strong></p>
+        <p><strong>USABILITY</strong></p>
+      </div>
+
+      <div class="rates-info">
+        <p class="content-circle"><strong>7.64</strong></p>
+        <p><strong>CONTENT</strong></p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <button class="visit-btn"><a href="">VISIT SITE</a></button>
+
+</div>
+
+
+{% endblock %}
