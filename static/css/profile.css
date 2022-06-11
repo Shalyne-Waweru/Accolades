@@ -76,6 +76,12 @@
   cursor: pointer;
 }
 
+.h-line {
+  width: 88%;
+  margin-top: 40px;
+  margin-bottom: -20px;
+}
+
 /* Profile Projects Section */
 .header {
   display: flex;

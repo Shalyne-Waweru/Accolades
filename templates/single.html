@@ -1,0 +1,181 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="single-project">
+  <div class="container">
+    <div class="header">
+      <div class="dev-deets">
+        <img src="{% static 'images/person.jpeg'%}" alt="Developer Image">
+        <p>Dev Name</p>
+      </div>
+      <p><strong>Posted:</strong> 08/04/2022</p>
+    </div>
+
+    <div class="project-info">
+      <img src="{% static 'images/sample_site.jpg' %}" alt="Background Image">
+
+      <div class="project-deets">
+        <h2><strong>Site Name</strong></h2>
+        <p>BY <span class="gold-txt">SHALYNE</span> WITH <span class="gold-txt">8.84</span></p>
+      </div>
+    </div>
+
+    <div class="ratings">
+
+      <div class="rates-info">
+        <p class="design-circle"><strong>7.84</strong></p>
+        <p><strong>DESIGN</strong></p>
+      </div>
+
+      <div class="rates-info">
+        <p class="usability-circle"><strong>7.74</strong></p>
+        <p><strong>USABILITY</strong></p>
+      </div>
+
+      <div class="rates-info">
+        <p class="content-circle"><strong>7.64</strong></p>
+        <p><strong>CONTENT</strong></p>
+      </div>
+
+      <div class="rates-info">
+        <p class="average-circle"><strong>7.54</strong></p>
+        <p><strong>AVERAGE</strong></p>
+      </div>
+
+    </div>
+
+    <div class="description">
+      <p>Lorem ipsum dolor sit amet. 33 impedit dolorem aut enim molestiae et sint nobis est sunt quis id ipsum fugit.
+        Ut quibusdam quae!</p>
+    </div>
+
+    <div class="votes">
+      <div class="header">
+        <p><strong>VOTES</strong></p>
+        <p><strong>3 voter(s)</strong></p>
+      </div>
+
+      <hr>
+
+      <div class="voter-info">
+        <div class="dev-deets">
+          <img src="{% static 'images/person.jpeg'%}" alt="Developer Image">
+          <p>Dev Name</p>
+        </div>
+
+        <div class="ratings">
+          <div class="rates-info">
+            <p class="design-circle" style="width: 55px; height: 55px; padding: 10px;"><strong>7.84</strong></p>
+            <p><strong>DESIGN</strong></p>
+          </div>
+
+          <div class="rates-info">
+            <p class="usability-circle" style="width: 55px; height: 55px; padding: 10px;"><strong>7.74</strong></p>
+            <p><strong>USABILITY</strong></p>
+          </div>
+
+          <div class="rates-info">
+            <p class="content-circle" style="width: 55px; height: 55px; padding: 10px;"><strong>7.64</strong></p>
+            <p><strong>CONTENT</strong></p>
+          </div>
+
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="voter-info">
+        <div class="dev-deets">
+          <img src="{% static 'images/person.jpeg'%}" alt="Developer Image">
+          <p>Dev Name</p>
+        </div>
+
+        <div class="ratings">
+          <div class="rates-info">
+            <p class="design-circle" style="width: 55px; height: 55px; padding: 10px;"><strong>7.84</strong></p>
+            <p><strong>DESIGN</strong></p>
+          </div>
+
+          <div class="rates-info">
+            <p class="usability-circle" style="width: 55px; height: 55px; padding: 10px;"><strong>7.74</strong></p>
+            <p><strong>USABILITY</strong></p>
+          </div>
+
+          <div class="rates-info">
+            <p class="content-circle" style="width: 55px; height: 55px; padding: 10px;"><strong>7.64</strong></p>
+            <p><strong>CONTENT</strong></p>
+          </div>
+
+        </div>
+      </div>
+
+      <hr>
+
+    </div>
+
+    <div class="add-votes">
+      <div class="section-header">
+        <hr class="horizontal">
+        <p>Add Your Vote</p>
+        <hr class="horizontal">
+      </div>
+
+      <form>
+        <div class="form-group">
+          <label>Design</label><br>
+          <div class="star-container">
+            <button class="star">&#9734</button>
+            <button class="star">&#9734</button>
+            <button class="star">&#9734</button>
+            <button class="star">&#9734</button>
+            <button class="star">&#9734</button>
+            <button class="star">&#9734</button>
+            <button class="star">&#9734</button>
+            <button class="star">&#9734</button>
+            <button class="star">&#9734</button>
+            <button class="star">&#9734</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Usability</label><br>
+          <div class="star-container">
+            <button class="star">&#9734</button>
+            <button class="star">&#9734</button>
+            <button class="star">&#9734</button>
+            <button class="star">&#9734</button>
+            <button class="star">&#9734</button>
+            <button class="star">&#9734</button>
+            <button class="star">&#9734</button>
+            <button class="star">&#9734</button>
+            <button class="star">&#9734</button>
+            <button class="star">&#9734</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Content</label><br>
+          <div class="star-container">
+            <button class="star">&#9734</button>
+            <button class="star">&#9734</button>
+            <button class="star">&#9734</button>
+            <button class="star">&#9734</button>
+            <button class="star">&#9734</button>
+            <button class="star">&#9734</button>
+            <button class="star">&#9734</button>
+            <button class="star">&#9734</button>
+            <button class="star">&#9734</button>
+            <button class="star">&#9734</button>
+          </div>
+        </div>
+
+        <button class="submit-btn" type="submit">SUBMIT VOTE</button>
+      </form>
+    </div>
+
+  </div>
+
+</div>
+
+{% endblock %}

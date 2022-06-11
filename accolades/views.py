@@ -18,3 +18,9 @@ def profile(request):
    View function that renders the profile page and its data
    '''
    return render(request,"profile.html")
+
+def singleProject(request):
+   '''
+   View function that renders a single project page and its data
+   '''
+   return render(request,"single.html")
