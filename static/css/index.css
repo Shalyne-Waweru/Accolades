@@ -47,7 +47,7 @@
 }
 
 .auth-actions .fas {
-  color: #FFC910;
+  color: #B5903F;
   font-size: 24px;
   margin-right: 40px;
   cursor: pointer;
@@ -233,7 +233,7 @@
 .website-section .container {
   min-width: 88% !important;
   height: 100%;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 
 .website-section .container .row {
@@ -297,4 +297,46 @@
   font-weight: bold;
   text-decoration: none;
   font-size: 15px;
+}
+
+/* Footer Section */
+.footer {
+  height: 120px;
+  background-color: #131313;
+  margin-top: 40px;
+}
+
+.fab {
+  margin-top: 20px;
+  font-size: 25px;
+  width: 30px;
+  text-align: center;
+  text-decoration: none;
+  margin-left: 30px;
+  color: white;
+  cursor: pointer;
+}
+
+.fab:hover {
+    color: #FFC910;
+    text-decoration: none;
+}
+
+.social {
+  display: flex;
+  justify-content: center;
+  margin-right: 30px;
+}
+
+.footer hr{
+  height: 1px;
+  width: 15%;
+  margin-left: 42%;
+  background: white;
+}
+
+.footer p {
+  color: #FFC910;
+  text-align: center;
+  font-size: 18px;
 }
