@@ -1,0 +1,93 @@
+/* Profile Info Section */
+.profile .container {
+  max-width: 30% !important;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.profile .container img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  border: 2px solid black;
+  margin-bottom: 20px;
+}
+
+.profile .container .edit-profile-btn{
+  position: relative;
+  padding: 10px 40px;
+  transition: 0.5s;
+  overflow: hidden;
+  background: #B5903F;
+  border-radius: 5px;
+  margin-top: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.profile .container .edit-profile-btn a, .profile .container .edit-profile-btn a:visited{
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.profile .container .edit-profile-btn:hover {
+  background-color: black;
+  color: white;
+  box-shadow: 0 0 50px #B5903F;
+  transition-delay: 0.1s;
+  text-decoration: none;
+}
+
+/* Edit Profile Modal */
+.profile .modal {
+  text-align: left;
+}
+
+.profile .modal-content {
+  border-radius: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.profile .modal-title {
+  font-family: 'Charm', 'sans-serif';
+  font-weight: bold;
+}
+
+.form-control-file {
+  border: 1px solid rgb(190, 189, 189);
+  height: 40px;
+  margin-bottom: 30px;
+  border-radius: 5px;
+}
+
+.upload-btn {
+  border: none;
+  border-radius: 5px;
+  padding: 8px;
+  color: white;
+  background-color: #B5903F;
+  font-weight: bold;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+/* Profile Projects Section */
+.header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.header .votes {
+  margin-left: -50px;
+}
+
+.votes-info .fas {
+  color: #FFC910;
+  font-size: 20px;
+}

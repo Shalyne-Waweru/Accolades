@@ -12,3 +12,9 @@ def index(request):
   View function that renders the index page and its data
   '''
   return render(request,"index.html")
+
+def profile(request):
+   '''
+   View function that renders the profile page and its data
+   '''
+   return render(request,"profile.html")

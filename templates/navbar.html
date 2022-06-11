@@ -2,7 +2,7 @@
 
 <nav class="navbar justify-content-between">
   <div class="logo">
-    <a href="{% url 'landingPage' %}"><img src="{% static 'images/logo.png' %}" alt="Logo" /></a>
+    <a href="{% url 'indexPage' %}"><img src="{% static 'images/logo.png' %}" alt="Logo" /></a>
     <p>ACCOLADES</p>
   </div>
 
@@ -13,6 +13,7 @@
 
   <div class="auth-actions">
     <i class="fas fa-plus-circle" data-toggle="modal" data-target="#exampleModalCenter"></i>
+    <a href="{% url 'profilePage' %}"><i class="fas fa-user-circle"></i></a>
     <a class="login-btn" href="">LOGIN</a>
   </div>
 
