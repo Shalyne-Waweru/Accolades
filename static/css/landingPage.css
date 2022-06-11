@@ -1,3 +1,107 @@
-body {
-  background-color: aqua;
+@import url('https://fonts.googleapis.com/css2?family=Charm&display=swap');
+
+img {
+  position:absolute;
+  width:100%;
+  height:100%;
+  z-index:1;
+}
+
+.intro {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  z-index: 2;
+  text-align: center;
+  top: 49%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.intro h1 {
+  font-size: 65px;
+}
+
+.charm {
+  font-family: 'Charm', cursive;
+  font-weight: 100;
+}
+
+.intro p {
+  font-size: 23px;
+  line-height: 1.6;
+  margin-top: 10px;
+}
+
+.gold-txt {
+  color: #B5903F;
+  font-weight: bold;
+}
+
+hr {
+  clear:both;
+  display:block;
+  width: 40%;               
+  background-color:white;
+  height: 2px;
+  margin-bottom: 40px;
+}
+
+.exploreBtn, .exploreBtn:visited {
+  position: relative;
+  padding: 10px;
+  width: 150px;
+  color: white;
+  font-family: 'Charm', cursive;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.5s;
+  overflow: hidden;
+  -webkit-box-reflect: below 1px linear-gradient(transparent, #0003);
+}
+
+.exploreBtn:hover {
+  background: #B5903F;
+  color: white;
+  box-shadow: 0 0 50px #B5903F;
+  transition-delay: 0.3s;
+  text-decoration: none;
+}
+
+.exploreBtn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #B5903F;
+  border-left: 2px solid #B5903F;
+  transition: 0.5s;
+}
+
+.exploreBtn:hover::before {
+  width: 100%;
+  height: 100%;
+}
+
+.exploreBtn::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  border-bottom: 2px solid #B5903F;
+  border-right: 2px solid #B5903F;
+  transition: 0.5s;
+}
+
+.exploreBtn:hover::after {
+  width: 100%;
+  height: 100%;
 }
