@@ -1,11 +1,10 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
 
   <!--Font Awesome-->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
@@ -13,26 +12,27 @@
 
   <!-- Stylesheets -->
   <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
-  <link rel="stylesheet" href="{% static 'css/landingPage.css' %}">
-  
-  <title>Landing Page</title>
+  <link rel="stylesheet" href="{% static 'css/index.css' %}">
+
 </head>
+
 <body>
-  <img src="{% static 'images/home_img.jpg' %}" alt="Background Image">
 
-  <div class="intro">
-    <h1><span class="charm">Welcome To </span> <strong>ACCOLADES</strong> </h1>
-    <p>Flex your <span class="gold-txt">prowess</span> in web development and get <br>
-      <span class="gold-txt">constructive feedback</span> from other users!</p>
-    <hr>
-    <a class="exploreBtn" href="{% url 'indexPage' %}">EXPLORE   <i class="fas fa-arrow-right"></i></a>
-  </div>
+  {% include 'navbar.html' %}
+  
+  {% block content %}
+  
+  {% endblock %}
 
+  {% block scripts %}
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="{% static 'js/jquery-3.6.0.min.js' %} "></script>
   <script src="{% static 'js/popper.min.js' %} "></script>
   <script src="{% static 'js/bootstrap.min.js' %} "></script>
   <script src="{% static 'js/script.js' %} "></script>
+  {% endblock %}
+
 </body>
+
 </html>
