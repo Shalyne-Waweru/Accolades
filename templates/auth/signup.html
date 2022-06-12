@@ -42,25 +42,19 @@
       
           {% endfor %}
         {% endif %}
-        
+
         <div class="form-group">
-          <!-- <label>Username</label>
-          <input type="text" class="form-control" name="username" required> -->
           <label>{{signupForm.username.label}}</label><br>
           {{signupForm.username}}
         </div>
 
         <div class="form-group">
-          <!-- <label>Email</label>
-          <input type="email" class="form-control" name="email" required> -->
           <label>{{signupForm.email.label}}</label><br>
           {{signupForm.email}}
           <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
 
         <div class="form-group">
-          <!-- <label>Password</label>
-          <input type="password" class="form-control" name="password1" required> -->
           <label>{{signupForm.password1.label}}</label><br>   
           {{signupForm.password1}}
           <small id="passwordHelp" class="form-text text-muted">The password should <strong>NOT</strong> be common, only
@@ -68,8 +62,6 @@
         </div>
 
         <div class="form-group">
-          <!-- <label>Confirm Password</label>
-          <input type="password" class="form-control" name="password2" required> -->
           <label>Confirm Password</label><br>
           {{signupForm.password2}}
         </div>

@@ -17,7 +17,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
-from accolades.views import landingPage,index,profile,singleProject,login_user,signup_user
+from accolades.views import landingPage,index,profile,singleProject,login_user,signup_user,logout_user
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,8 +25,9 @@ urlpatterns = [
     path('index/', index, name="indexPage"),
     path('profile/', profile, name="profilePage"),
     path('single/', singleProject, name="singleProjectPage"),
-    path('login/', login_user, name="loginPage"),
     path('signup/', signup_user, name="signupPage"),
+    path('login/', login_user, name="loginPage"),
+    path('logout/', logout_user, name="logout"),   
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

@@ -1,39 +1,10 @@
 from django.http import JsonResponse
 from django.shortcuts import redirect, render
-from .forms import SignUpForm
+from .forms import *
 from django.contrib import messages
+from django.contrib.auth import authenticate,login,logout
 
-# Create your views here.
-def landingPage(request):
-  '''
-  View function that renders the landing page and its information
-  '''
-  return render(request, "landingPage.html")
-
-def index(request):
-  '''
-  View function that renders the index page and its data
-  '''
-  return render(request,"index.html")
-
-def profile(request):
-   '''
-   View function that renders the profile page and its data
-   '''
-   return render(request,"profile.html")
-
-def singleProject(request):
-   '''
-   View function that renders a single project page and its data
-   '''
-   return render(request,"single.html")
-
-def login_user(request):
-  '''
-  View function that renders the login page and its data
-  '''
-  return render(request,"auth/login.html")
-
+# SIGNUP FUNCTION
 def signup_user(request):
   '''
   View function that renders the signup page and its data
@@ -61,3 +32,69 @@ def signup_user(request):
     signupForm = SignUpForm()
 
   return render(request,"auth/signup.html", locals())
+  
+
+# LOGIN FUNCTION
+def login_user(request):
+  '''
+  View function that renders the login page and its data
+  '''
+
+  if request.method == "POST":
+    username = request.POST['username']
+    password = request.POST['password']
+
+    print(username)
+    print(password)
+
+    user = authenticate(request, username=username, password=password)
+    print(user)
+
+    if user is not None:
+      # player, created = Profile.objects.get_or_create(user=request.user)
+
+      login(request, user)
+      messages.success(request, username + " Logged In Successfully!")
+      return redirect("indexPage")
+
+    else:
+      messages.error(request, "Username or Password is Incorrect. Please Try Again!")
+      return redirect("loginPage")
+
+  return render(request,"auth/login.html", locals())
+
+
+# LOGOUT FUNCTION
+def logout_user(request):
+  '''
+  View function that logs out the user
+  '''
+  logout(request)
+  messages.success(request,"User Logged Out Successfully!")
+  
+  return redirect('loginPage')
+
+
+def landingPage(request):
+  '''
+  View function that renders the landing page and its information
+  '''
+  return render(request, "landingPage.html")
+
+def index(request):
+  '''
+  View function that renders the index page and its data
+  '''
+  return render(request,"index.html")
+
+def profile(request):
+   '''
+   View function that renders the profile page and its data
+   '''
+   return render(request,"profile.html")
+
+def singleProject(request):
+   '''
+   View function that renders a single project page and its data
+   '''
+   return render(request,"single.html")

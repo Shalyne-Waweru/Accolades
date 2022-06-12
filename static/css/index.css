@@ -75,6 +75,37 @@
   text-decoration: none;
 }
 
+.logged-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logged-info p {
+  color: white;
+  font-weight: bold;
+  margin-right: 15px;
+  margin-top: 20px;
+}
+
+.dropdown button {
+  border: none;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+}
+
+.dropdown button:focus {
+  outline: none;
+}
+
+.dropdown button img {
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  background-attachment: fixed;
+}
+
 /* New Post Modal */
 .navbar .modal-content {
   border-radius: 5px;

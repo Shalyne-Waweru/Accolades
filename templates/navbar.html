@@ -13,8 +13,25 @@
 
   <div class="auth-actions">
     <i class="fas fa-plus-circle" data-toggle="modal" data-target="#exampleModalCenter"></i>
-    <a href="{% url 'profilePage' %}"><i class="fas fa-user-circle"></i></a>
-    <a class="login-btn" href="{% url 'loginPage' %}">LOGIN</a>
+    
+    {% if user.is_authenticated %}
+      <div class="logged-info">
+        <p>{{user.username |upper}}</p>
+        <div class="dropdown">
+          <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img src="{{user.profile.profile_pic.url}}" alt="Image">
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="{% url 'profilePage' %}">Profile</a>
+            <a class="dropdown-item" href="{% url 'logout' %}">Log Out</a>
+          </div>
+        </div>
+
+      </div>
+      
+    {% else %}
+      <a class="login-btn" href="{% url 'loginPage' %}">LOGIN</a>
+    {% endif%}
   </div>
 
   <!-- New Post Modal -->
