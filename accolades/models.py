@@ -12,11 +12,12 @@ class Profile(models.Model):
   def __str__(self):
         return f'{self.user.username} Profile Details'
 
-  # @receiver(post_save, sender=User)
-  # def update_user_profile(sender, instance, created, **kwargs):
-  #     if created:
-  #         Profile.objects.create(user=instance)
-  #     instance.profile.save()
+  #Create a profile for every signed in user
+  @receiver(post_save, sender=User)
+  def update_user_profile(sender, instance, created, **kwargs):
+      if created:
+          Profile.objects.create(user=instance)
+      instance.profile.save()
 
   def save_profile(self):
     self.save()
