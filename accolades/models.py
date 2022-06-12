@@ -29,7 +29,7 @@ class Project(models.Model):
   #Create a foreign key column that will store the ID of the User from the User table
   user = models.ForeignKey(User,on_delete=models.CASCADE,related_name='projects')
   title = models.CharField(max_length=250)
-  image = models.ImageField(upload_to = 'project-images/',default='DEFAULT VALUE')
+  image = models.ImageField(upload_to = 'project-images/')
   description = models.TextField()
   link = models.CharField(max_length=250)
   date = models.DateTimeField(auto_now_add=True)

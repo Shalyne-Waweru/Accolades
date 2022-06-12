@@ -4,6 +4,13 @@ from .forms import *
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
 
+# LANDING PAGE FUNCTION
+def landingPage(request):
+  '''
+  View function that renders the landing page and its information
+  '''
+  return render(request, "landingPage.html")
+
 # SIGNUP FUNCTION
 def signup_user(request):
   '''
@@ -106,17 +113,43 @@ def profile(request, username):
   
    return render(request,"profile.html", locals())
 
-def landingPage(request):
-  '''
-  View function that renders the landing page and its information
-  '''
-  return render(request, "landingPage.html")
 
+# MAIN PAGE FUNCTION
 def index(request):
   '''
   View function that renders the index page and its data
   '''
-  return render(request,"index.html")
+
+  projectForm = ProjectForm()
+
+  if request.method == "POST":
+    projectForm = ProjectForm(request.POST, request.FILES)
+
+    if projectForm.is_valid():
+      title = projectForm.cleaned_data['title']
+      description = projectForm.cleaned_data['description']
+      link = projectForm.cleaned_data['link']
+      image = request.FILES['image']
+
+      new_project = Project(user=request.user, title=title, image=image, description=description, link=link)
+      new_project.save()
+
+      print(title)
+      print(description)
+      print(link)
+      print(image)
+
+      messages.success(request, "Project Added Successfully!")
+      return redirect("indexPage")
+      
+    else:
+      messages.error(request, projectForm.errors)
+      return redirect("indexPage")
+    
+  else:
+    projectForm = ProjectForm()
+  
+  return render(request,"index.html", locals())
 
 def singleProject(request):
    '''
