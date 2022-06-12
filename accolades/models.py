@@ -35,3 +35,15 @@ class Project(models.Model):
 
   def __str__(self):
       return self.title
+
+  def save_project(self):
+    self.save()
+
+  def del_project(self):
+    self.delete()
+
+  @classmethod
+  def search_project(cls, search_term):
+    #The __icontains query filter will check if any word in the title field of our project matches the search_term
+    projects = cls.objects.filter(user__projects__title__icontains=search_term)
+    return projects
