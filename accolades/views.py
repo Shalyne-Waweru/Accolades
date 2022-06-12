@@ -30,3 +30,9 @@ def login_user(request):
   View function that renders the login page and its data
   '''
   return render(request,"auth/login.html")
+
+def signup_user(request):
+  '''
+  View function that renders the signup page and its data
+  '''
+  return render(request,"auth/signup.html")
