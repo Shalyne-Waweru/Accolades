@@ -24,3 +24,9 @@ def singleProject(request):
    View function that renders a single project page and its data
    '''
    return render(request,"single.html")
+
+def login_user(request):
+  '''
+  View function that renders the login page and its data
+  '''
+  return render(request,"auth/login.html")
