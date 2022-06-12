@@ -13,7 +13,7 @@
 
   <div class="auth-actions">
     <i class="fas fa-plus-circle" data-toggle="modal" data-target="#exampleModalCenter"></i>
-    
+
     {% if user.is_authenticated %}
       <div class="logged-info">
         <p>{{user.username |upper}}</p>
@@ -22,7 +22,7 @@
             <img src="{{user.profile.profile_pic.url}}" alt="Image">
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="{% url 'profilePage' %}">Profile</a>
+            <a class="dropdown-item" href="{% url 'profilePage' user.username %}">Profile</a>
             <a class="dropdown-item" href="{% url 'logout' %}">Log Out</a>
           </div>
         </div>

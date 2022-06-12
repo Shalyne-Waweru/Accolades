@@ -23,12 +23,10 @@
   {% if messages %}
     {% for message in messages %}
 
-    {% if message %}
     <div class="alert alert-dark alert-dismissible text-center fade show m-0" role="alert" style="margin-top: 30px;">
       {{message}}
       <span class="close" data-dismiss="modal">&times;</span>
     </div>
-    {% endif %}
 
     {% endfor %}
   {% endif %}

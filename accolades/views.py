@@ -1,4 +1,4 @@
-from django.http import JsonResponse
+from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render
 from .forms import *
 from django.contrib import messages
@@ -75,6 +75,37 @@ def logout_user(request):
   return redirect('loginPage')
 
 
+# PROFILE FUNCTION
+def profile(request, username):
+   '''
+   View function that renders the profile page and its data
+   '''
+
+   user_info_form = UpdateUserInfoForm()
+   update_profile_form = UpdateProfileForm()
+
+   if request.method == 'POST':
+      user_info_form = UpdateUserInfoForm(request.POST,instance=request.user)
+      update_profile_form = UpdateProfileForm(request.POST, request.FILES, instance=request.user.profile)
+
+      if user_info_form.is_valid and update_profile_form.is_valid():
+              
+              user_info_form.save()
+              update_profile_form.save()
+
+              messages.success(request, "Profile Updated Successfully!")
+              return HttpResponseRedirect(request.path_info)
+
+      else:
+        messages.error(request, "Profile Update Failed. Please Try Again!")
+        return HttpResponseRedirect(request.path_info)
+   
+   else:
+          user_info_form = UpdateUserInfoForm(instance=request.user)
+          update_profile_form = UpdateProfileForm(instance=request.user.profile)
+  
+   return render(request,"profile.html", locals())
+
 def landingPage(request):
   '''
   View function that renders the landing page and its information
@@ -86,12 +117,6 @@ def index(request):
   View function that renders the index page and its data
   '''
   return render(request,"index.html")
-
-def profile(request):
-   '''
-   View function that renders the profile page and its data
-   '''
-   return render(request,"profile.html")
 
 def singleProject(request):
    '''

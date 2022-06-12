@@ -63,6 +63,17 @@
   border-radius: 5px;
 }
 
+.form-control input {
+  width: 100%;
+  border: 0px;
+}
+
+textarea {
+  height: 4em;
+  width: 25em;
+  border: 0px;
+}
+
 .upload-btn {
   border: none;
   border-radius: 5px;
