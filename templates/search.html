@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="search-res">
+  <div class="container">
+    {% if searched_projects %}
+      <h5><strong>{{searched_projects | length}}</strong> project(s) found</h5>
+    {% else %}
+      <h5>Found <strong>0</strong> projects for the searched term <strong>{{message | title}}</strong></h5>
+    {% endif %}
+  </div>
+  
+</div>
+
+<hr style="margin-bottom: 50px;">
+
+<div class="website-section">
+
+  <div class="container">
+    <div class="row">
+      {% if searched_projects %}
+        {% for project in searched_projects %}
+            <div class="col-md-3">
+                    <a href="{% url 'singleProjectPage' project.id %}"><img src="{{project.image.url}}" alt="Project Image"></a>
+
+                    <div class="post-info">
+                      <h5>{{project.title}}</h5>
+                      <p>{{project.description |truncatechars:100}}</p>
+                      <h6 class="date"><strong>DATE: </strong>{{project.date |date}}</h6>
+
+                      <hr>
+
+                      <div class="more-info">
+                        <div class="dev-info">
+                          <a href="{% url 'profilePage' project.user.username %}">
+                            <img src="{{project.user.profile.profile_pic.url}}" alt="Developer Image"></a>
+                          </a>
+                          <p>{{project.user.username |title}}</p>
+                        </div>
+
+                        <a class="vote-btn" href="{% url 'singleProjectPage' project.id %}">VOTE</a>
+                      </div>
+                    </div>
+
+            </div>
+        {% endfor %}
+      {% else %}
+        <h5 style="text-align: center;">There are no projects yet</h5>
+      {% endif %}
+
+    </div>
+  </div>
+</div>
+
+<!-- <div class="container mt-5">
+  <div class="row mt-5"></div>
+  <div class="row mt-5"></div>
+  <div class="row mt-5">
+    {% if searched_projects %}
+    <h2>{{searched_projects | length}} project(s) found</h2>
+    {% else %}
+    <h2>Found 0 projects for the searched name {{message | title}}</h2>
+    {% endif %}
+  </div>
+  <div class="row">
+    {% if searched_projects %}
+    {% for project in searched_projects %}
+
+    <div class="card border-secondary">
+      <img class="card-img-top" class="img-responsive" src="{{project.image.url}}" size="100px200">
+    </div>
+    <div class="card-body">
+      {% endfor %}
+      {% endif %}
+    </div>
+  </div> -->
+{% endblock %}

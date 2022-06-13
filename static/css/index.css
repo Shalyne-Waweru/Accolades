@@ -33,6 +33,7 @@
 .form-inline button {
   background-color: transparent;
   border: none;
+  margin-top: -12px;
 }
 
 .form-inline .fab {
