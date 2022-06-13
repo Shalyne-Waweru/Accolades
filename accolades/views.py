@@ -97,12 +97,31 @@ def profile(request, username):
   
    user_info_form = UpdateUserInfoForm()
    update_profile_form = UpdateProfileForm()
+   projectForm = ProjectForm()
 
    if request.method == 'POST':
       user_info_form = UpdateUserInfoForm(request.POST,instance=request.user)
       update_profile_form = UpdateProfileForm(request.POST, request.FILES, instance=request.user.profile)
+      projectForm = ProjectForm(request.POST, request.FILES)
 
-      if user_info_form.is_valid and update_profile_form.is_valid():
+      if projectForm.is_valid():
+        title = projectForm.cleaned_data['title']
+        description = projectForm.cleaned_data['description']
+        link = projectForm.cleaned_data['link']
+        image = request.FILES['image']
+
+        new_project = Project(user=request.user, title=title, image=image, description=description, link=link)
+        new_project.save()
+
+        print(title)
+        print(description)
+        print(link)
+        print(image)
+
+        messages.success(request, "Project Added Successfully!")
+        return redirect("indexPage")
+
+      elif user_info_form.is_valid() and update_profile_form.is_valid():
               
               user_info_form.save()
               update_profile_form.save()
@@ -111,12 +130,13 @@ def profile(request, username):
               return HttpResponseRedirect(request.path_info)
 
       else:
-        messages.error(request, "Profile Update Failed. Please Try Again!")
+        messages.error(request, "Oops, an error occured. Please Try Again!")
         return HttpResponseRedirect(request.path_info)
    
    else:
           user_info_form = UpdateUserInfoForm(instance=request.user)
           update_profile_form = UpdateProfileForm(instance=request.user.profile)
+          projectForm = ProjectForm()
   
    return render(request,"profile.html", locals())
 
