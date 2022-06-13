@@ -17,22 +17,21 @@
 {% endif %}
 
 <div class="recent-post">
-  <img src="{% static 'images/sample_site.jpg' %}" alt="Background Image">
+  <!-- <img src="{% static 'images/sample_site.jpg' %}" alt="Background Image"> -->
 
-  <!-- <img src="{{recent_project.image.url}}" alt="Background Image"> -->
+  <img src="{{recent_project.image.url}}" alt="Background Image">
 
 
   <div class="left-section">
     <p><strong>Site of the Day</strong></p>
-    <p>Posted : 08/04/2022</p>
-    <!-- <p>Posted : {{recent_project.date |date}}</p> -->
+    <p>Posted : {{recent_project.date |date}}</p>
   </div>
 
   <div class="container">
 
     <div class="site-info">
-      <!-- <h2><strong>{{recent_project.title}}</strong></h2>
-      <p>BY <span class="gold-txt">{{recent_project.user.username |upper}}</span> WITH <span class="gold-txt">8.84</span></p> -->
+      <h2><strong>{{recent_project.title}}</strong></h2>
+      <p>BY <span class="gold-txt">{{recent_project.user.username |upper}}</span> WITH <span class="gold-txt">8.84</span></p>
     </div>
 
     <div class="ratings">
@@ -56,7 +55,7 @@
 
   </div>
 
-  <button class="visit-btn"><a href="#">VISIT SITE</a></button>
+  <button class="visit-btn"><a href="{{recent_project.link}}">VISIT SITE</a></button>
 
 </div>
 
@@ -65,105 +64,33 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-md-3">
-        <img src="{% static 'images/sample_site.jpg'%}" alt="Project Image">
+      {% if projects %}
+        {% for project in projects %}
+            <div class="col-md-3">
+                    <img src="{{project.image.url}}" alt="Project Image">
 
-        <div class="post-info">
-          <h5>Site Name</h5>
-          <p>Lorem ipsum dolor sit amet. 33
-            impedit dolorem aut enim molestiae
-            et sint nobis est sunt quis id ipsum
-            fugit. Ut quibusdam quae!</p>
-          <h6 class="date"><strong>DATE: </strong>08/04/2022</h6>
+                    <div class="post-info">
+                      <h5>{{project.title}}</h5>
+                      <p>{{project.description |truncatechars:100}}</p>
+                      <h6 class="date"><strong>DATE: </strong>{{project.date |date}}</h6>
 
-          <hr>
+                      <hr>
 
-          <div class="more-info">
-            <div class="dev-info">
-              <img src="{% static 'images/person.jpeg'%}" alt="Developer Image">
-              <p>Dev Name</p>
+                      <div class="more-info">
+                        <div class="dev-info">
+                          <img src="{{project.user.profile.profile_pic.url}}" alt="Developer Image">
+                          <p>{{project.user.username |title}}</p>
+                        </div>
+
+                        <a class="vote-btn" href="{% url 'singleProjectPage' %}">VOTE</a>
+                      </div>
+                    </div>
+
             </div>
-
-            <a class="vote-btn" href="{% url 'singleProjectPage' %}">VOTE</a>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="col-md-3">
-        <img src="{% static 'images/sample_site.jpg'%}" alt="Project Image">
-
-        <div class="post-info">
-          <h5>Site Name</h5>
-          <p>Lorem ipsum dolor sit amet. 33
-            impedit dolorem aut enim molestiae
-            et sint nobis est sunt quis id ipsum
-            fugit. Ut quibusdam quae!</p>
-          <h6 class="date"><strong>DATE: </strong>08/04/2022</h6>
-
-          <hr>
-
-          <div class="more-info">
-            <div class="dev-info">
-              <img src="{% static 'images/person.jpeg'%}" alt="Developer Image">
-              <p>Dev Name</p>
-            </div>
-
-            <a class="vote-btn" href="{% url 'singleProjectPage' %}">VOTE</a>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="col-md-3">
-        <img src="{% static 'images/sample_site.jpg'%}" alt="Project Image">
-
-        <div class="post-info">
-          <h5>Site Name</h5>
-          <p>Lorem ipsum dolor sit amet. 33
-            impedit dolorem aut enim molestiae
-            et sint nobis est sunt quis id ipsum
-            fugit. Ut quibusdam quae!</p>
-          <h6 class="date"><strong>DATE: </strong>08/04/2022</h6>
-
-          <hr>
-
-          <div class="more-info">
-            <div class="dev-info">
-              <img src="{% static 'images/person.jpeg'%}" alt="Developer Image">
-              <p>Dev Name</p>
-            </div>
-
-            <a class="vote-btn" href="">VOTE</a>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="col-md-3">
-        <img src="{% static 'images/sample_site.jpg'%}" alt="Project Image">
-
-        <div class="post-info">
-          <h5>Site Name</h5>
-          <p>Lorem ipsum dolor sit amet. 33
-            impedit dolorem aut enim molestiae
-            et sint nobis est sunt quis id ipsum
-            fugit. Ut quibusdam quae!</p>
-          <h6 class="date"><strong>DATE: </strong>08/04/2022</h6>
-
-          <hr>
-
-          <div class="more-info">
-            <div class="dev-info">
-              <img src="{% static 'images/person.jpeg'%}" alt="Developer Image">
-              <p>Dev Name</p>
-            </div>
-
-            <a class="vote-btn" href="">VOTE</a>
-          </div>
-        </div>
-
-      </div>
+        {% endfor %}
+      {% else %}
+        <h5 style="text-align: center;">There are no projects yet</h5>
+      {% endif %}
 
     </div>
   </div>

@@ -234,7 +234,7 @@
   z-index: 2;
   background-color: transparent;
   padding: 5px;
-  border: 2px solid black;
+  border: 2px solid #FFC910;
   border-radius: 5px;
   margin-top: 50px;
   left: 50%;
@@ -244,13 +244,13 @@
 }
 
 .visit-btn a, .visit-btn a:visited {
-  color: black;
+  color: #FFC910;
   font-weight: bold;
   text-decoration: none;
 }
 
 .visit-btn a:hover {
-  color: white;
+  color: gray;
   text-decoration: none;
 }
 
@@ -281,6 +281,7 @@
   margin-right: 30px;
   margin-bottom: 70px;
   cursor: pointer;
+  min-height: 50px !important;
 }
 
 .col-md-3 img {

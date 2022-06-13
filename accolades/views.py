@@ -127,6 +127,13 @@ def index(req):
 
   projectForm = ProjectForm()
 
+  # Query the database for the most recent project
+  recent_project = Project.objects.latest('date')
+  print(recent_project)
+
+  # Query the database for all the projects
+  projects = Project.objects.all()
+
   if req.method == "POST":
     projectForm = ProjectForm(req.POST, req.FILES)
 
