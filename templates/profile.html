@@ -92,7 +92,7 @@
       {% if myProjects %}
         {% for project in myProjects %}
           <div class="col-md-3">
-            <img src="{{project.image.url}}" alt="Project Image">
+            <a href="{% url 'singleProjectPage' project.id %}"><img src="{{project.image.url}}" alt="Project Image"></a>
 
             <div class="post-info">
               <h5>{{project.title}}</h5>

@@ -48,3 +48,8 @@ class Project(models.Model):
     #The __icontains query filter will check if any word in the title field of our project matches the search_term
     projects = cls.objects.filter(user__projects__title__icontains=search_term)
     return projects
+
+  @classmethod
+  def get_project_by_id(cls, id):
+    project = cls.objects.filter(id = id).first()
+    return project

@@ -185,11 +185,17 @@ def index(req):
   
   return render(req,"index.html", locals())
 
-def singleProject(request):
+
+# SINGLE PROJECT FUNCTION
+def singleProject(request, id):
    '''
    View function that renders a single project page and its data
    '''
-   return render(request,"single.html")
+
+   project = Project.get_project_by_id(id)
+   print(project)
+
+   return render(request,"single.html", locals())
 
 
 # -------> API FUNCTIONS <-------- #

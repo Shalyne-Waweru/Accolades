@@ -67,7 +67,7 @@
       {% if projects %}
         {% for project in projects %}
             <div class="col-md-3">
-                    <img src="{{project.image.url}}" alt="Project Image">
+                    <a href="{% url 'singleProjectPage' project.id %}"><img src="{{project.image.url}}" alt="Project Image"></a>
 
                     <div class="post-info">
                       <h5>{{project.title}}</h5>
@@ -82,7 +82,7 @@
                           <p>{{project.user.username |title}}</p>
                         </div>
 
-                        <a class="vote-btn" href="{% url 'singleProjectPage' %}">VOTE</a>
+                        <a class="vote-btn" href="{% url 'singleProjectPage' project.id %}">VOTE</a>
                       </div>
                     </div>
 
