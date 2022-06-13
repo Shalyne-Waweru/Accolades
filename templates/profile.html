@@ -18,12 +18,14 @@
 <div class="profile">
   <div class="container">
     <!-- <img src="{% static 'images/person.jpeg'%}" alt="Developer Image"> -->
-    <img src="{{user.profile.profile_pic.url}}" alt="Developer Image">
-    <p><strong>{{user.username}}</strong></p>
-    <p>{{user.profile.bio}}</p>
+    <img src="{{user_profile.profile.profile_pic.url}}" alt="Developer Image">
+    <p><strong>{{user_profile.username}}</strong></p>
+    <p>{{user_profile.profile.bio}}</p>
 
     <!-- Edit Profile Button -->
-    <button class="edit-profile-btn" data-toggle="modal" data-target="#updateProfileModal"><a>EDIT PROFILE</a></button>
+    {% if user.is_authenticated and user.id == user_profile.id %}
+      <button class="edit-profile-btn" data-toggle="modal" data-target="#updateProfileModal"><a>EDIT PROFILE</a></button>
+    {% endif %}
 
     <!-- Change Profile Section -->
     <div class="modal" id="updateProfileModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -110,7 +112,7 @@
           </div>
         {% endfor %}
       {% else %}
-        <h5 style="text-align: center;">There are no projects yet</h5>
+        <h5 class="default-txt">There are no projects yet</h5>
       {% endif %}
 
     </div>

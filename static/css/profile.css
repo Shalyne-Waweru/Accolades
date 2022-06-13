@@ -40,6 +40,11 @@
   text-decoration: none;
 }
 
+.default-txt {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* Edit Profile Modal */
 .profile .modal {
   text-align: left;

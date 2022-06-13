@@ -78,7 +78,9 @@
 
                       <div class="more-info">
                         <div class="dev-info">
-                          <img src="{{project.user.profile.profile_pic.url}}" alt="Developer Image">
+                          <a href="{% url 'profilePage' project.user.username %}">
+                            <img src="{{project.user.profile.profile_pic.url}}" alt="Developer Image"></a>
+                          </a>
                           <p>{{project.user.username |title}}</p>
                         </div>
 

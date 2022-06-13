@@ -1,11 +1,10 @@
-import json
 from django.http import HttpResponseRedirect
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from .forms import *
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
 from .serializer import ProjectSerializer
-from urllib import request
+from django.contrib.auth.decorators import login_required
 
 # DJANGO REST_FRAMEWORK
 from rest_framework.decorators import api_view
@@ -88,12 +87,17 @@ def logout_user(request):
 
 
 # PROFILE FUNCTION
+@login_required(login_url='/login')
 def profile(request, username):
    '''
    View function that renders the profile page and its data
    '''
-   
-   myProjects = request.user.projects.all()
+
+   # Query the database to get the username of the user
+   user_profile = get_object_or_404(User, username=username)
+
+   #Query the database to get the projects of that user
+   myProjects = Project.objects.filter(user = user_profile.id).all()
   
    user_info_form = UpdateUserInfoForm()
    update_profile_form = UpdateProfileForm()
@@ -196,7 +200,7 @@ def singleProject(request, id):
    print(project)
 
    return render(request,"single.html", locals())
-
+   
 
 # -------> API FUNCTIONS <-------- #
 
