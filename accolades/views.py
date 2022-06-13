@@ -92,7 +92,9 @@ def profile(request, username):
    '''
    View function that renders the profile page and its data
    '''
-
+   
+   myProjects = request.user.projects.all()
+  
    user_info_form = UpdateUserInfoForm()
    update_profile_form = UpdateProfileForm()
 
