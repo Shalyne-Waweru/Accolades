@@ -24,6 +24,8 @@
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <a class="dropdown-item" href="{% url 'profilePage' user.username %}">Profile</a>
+            <a class="dropdown-item" href="{% url 'getProfiles' %}">Profiles API Link</a>
+            <a class="dropdown-item" href="{% url 'getProjects' %}">Projects API Link</a>
             <a class="dropdown-item" href="{% url 'logout' %}">Log Out</a>
           </div>
         </div>
