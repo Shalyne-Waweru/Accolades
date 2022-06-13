@@ -3,7 +3,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from .forms import *
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
-from .serializer import ProjectSerializer
+from .serializer import ProjectSerializer, ProfileSerializer
 from django.contrib.auth.decorators import login_required
 
 # DJANGO REST_FRAMEWORK
@@ -211,9 +211,30 @@ def getProjects(request):
   View Function that gets all the submitted projects
   '''
 
+  # Query the database to get all the projects
   projects = Project.objects.all()
 
   # Serializing the Django model objects
   ser_projects = ProjectSerializer(projects, many=True)
 
   return Response(ser_projects.data)
+
+
+# GET ALL THE USER PROFILES
+@api_view(['GET'])
+def getProfiles(request):
+  '''
+  View function that returns all the user profiles
+  '''
+
+  # Query the database to get all the profiles
+  profiles = Profile.objects.all()
+
+  # Serializing the Django model objects
+  ser_profiles = ProfileSerializer(profiles, many=True)
+
+  return Response(ser_profiles.data)
+
+
+
+
