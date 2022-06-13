@@ -1,8 +1,15 @@
+import json
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render
 from .forms import *
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
+from .serializer import ProjectSerializer
+from urllib import request
+
+# DJANGO REST_FRAMEWORK
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 
 # LANDING PAGE FUNCTION
 def landingPage(request):
@@ -58,8 +65,6 @@ def login_user(request):
     print(user)
 
     if user is not None:
-      # player, created = Profile.objects.get_or_create(user=request.user)
-
       login(request, user)
       messages.success(request, username + " Logged In Successfully!")
       return redirect("indexPage")
@@ -115,23 +120,23 @@ def profile(request, username):
 
 
 # MAIN PAGE FUNCTION
-def index(request):
+def index(req):
   '''
   View function that renders the index page and its data
   '''
 
   projectForm = ProjectForm()
 
-  if request.method == "POST":
-    projectForm = ProjectForm(request.POST, request.FILES)
+  if req.method == "POST":
+    projectForm = ProjectForm(req.POST, req.FILES)
 
     if projectForm.is_valid():
       title = projectForm.cleaned_data['title']
       description = projectForm.cleaned_data['description']
       link = projectForm.cleaned_data['link']
-      image = request.FILES['image']
+      image = req.FILES['image']
 
-      new_project = Project(user=request.user, title=title, image=image, description=description, link=link)
+      new_project = Project(user=req.user, title=title, image=image, description=description, link=link)
       new_project.save()
 
       print(title)
@@ -139,20 +144,37 @@ def index(request):
       print(link)
       print(image)
 
-      messages.success(request, "Project Added Successfully!")
+      messages.success(req, "Project Added Successfully!")
       return redirect("indexPage")
       
     else:
-      messages.error(request, projectForm.errors)
+      messages.error(req, projectForm.errors)
       return redirect("indexPage")
     
   else:
     projectForm = ProjectForm()
   
-  return render(request,"index.html", locals())
+  return render(req,"index.html", locals())
 
 def singleProject(request):
    '''
    View function that renders a single project page and its data
    '''
    return render(request,"single.html")
+
+
+# -------> API FUNCTIONS <-------- #
+
+# GET ALL PROJECTS
+@api_view(['GET'])
+def getProjects(request):
+  '''
+  View Function that gets all the submitted projects
+  '''
+
+  projects = Project.objects.all()
+
+  # Serializing the Django model objects
+  ser_projects = ProjectSerializer(projects, many=True)
+
+  return Response(ser_projects.data)

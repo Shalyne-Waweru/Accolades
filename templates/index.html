@@ -19,16 +19,20 @@
 <div class="recent-post">
   <img src="{% static 'images/sample_site.jpg' %}" alt="Background Image">
 
+  <!-- <img src="{{recent_project.image.url}}" alt="Background Image"> -->
+
+
   <div class="left-section">
     <p><strong>Site of the Day</strong></p>
     <p>Posted : 08/04/2022</p>
+    <!-- <p>Posted : {{recent_project.date |date}}</p> -->
   </div>
 
   <div class="container">
 
     <div class="site-info">
-      <h2><strong>Site Name</strong></h2>
-      <p>BY <span class="gold-txt">SHALYNE</span> WITH <span class="gold-txt">8.84</span></p>
+      <!-- <h2><strong>{{recent_project.title}}</strong></h2>
+      <p>BY <span class="gold-txt">{{recent_project.user.username |upper}}</span> WITH <span class="gold-txt">8.84</span></p> -->
     </div>
 
     <div class="ratings">
@@ -52,7 +56,7 @@
 
   </div>
 
-  <button class="visit-btn"><a href="">VISIT SITE</a></button>
+  <button class="visit-btn"><a href="#">VISIT SITE</a></button>
 
 </div>
 
