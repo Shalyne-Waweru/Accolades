@@ -166,6 +166,7 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 20px;
 }
 
 .section-header hr {
@@ -188,7 +189,7 @@ body{
 /* Form Section */
 .star-container {
   border: 1px solid;
-  height: 50px;
+  height: 85px;
   width: 70%;
   margin-left: auto;
   margin-right: auto;
@@ -196,16 +197,17 @@ body{
   user-select: none;
 }
 
-.star {
+.d-star, .u-star, .c-star {
   font-size: 2rem;
   color: #FFC910;
   background-color: unset;
   border: none;
 }
 
-.star:hover {
+.d-star:hover, .u-star:hover, .c-star:hover {
   cursor: pointer;
 }
+
 
 .submit-btn {
   background-color: #1D160B;
@@ -214,8 +216,118 @@ body{
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
-  margin-top: 20px;
-  margin-bottom: 45px;
+  margin-top: -10px;
+  margin-bottom: 65px;
+  cursor: pointer;
 }
 
+form p {
+  margin-bottom: -20px;
+}
+
+form .container {
+  width: 70%;
+  padding: 20px 30px;
+  border: 1px solid #444;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* DESIGN RATINGS */
+form .container .d-star-widget {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+}
+
+form .container .d-star-widget input {
+  display: none;
+}
+
+.d-star-widget label {
+  font-size: 20px;
+  color: #444;
+  padding: 5px;
+  transition: all 0.2s ease;
+}
+
+.d-star-widget input:not(:checked) ~ label:hover,
+.d-star-widget input:not(:checked) ~ label:hover ~ label {
+  color: #fd4;
+}
+
+.d-star-widget input:checked ~ label {
+  color: #fd4;
+}
+
+.d-star-widget input#d-rate-10:checked  ~ label, .d-star-widget input#d-rate-9:checked ~ label, .d-star-widget input#d-rate-8:checked ~ label, .d-star-widget input#d-rate-7:checked ~ label, .d-star-widget input#d-rate-6:checked ~ label {
+  color: #fd4;
+  text-shadow: 0 0 20px black;
+}
+
+/* USABILITY RATINGS */
+form .container .u-star-widget {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+}
+
+form .container .u-star-widget input {
+  display: none;
+}
+
+.u-star-widget label {
+  font-size: 20px;
+  color: #444;
+  padding: 5px;
+  transition: all 0.2s ease;
+}
+
+.u-star-widget input:not(:checked) ~ label:hover,
+.u-star-widget input:not(:checked) ~ label:hover ~ label {
+  color: #fd4;
+}
+
+.u-star-widget input:checked ~ label {
+  color: #fd4;
+}
+
+.u-star-widget input#u-rate-10:checked  ~ label, .u-star-widget input#u-rate-9:checked ~ label, .u-star-widget input#u-rate-8:checked ~ label, .u-star-widget input#u-rate-7:checked ~ label, .u-star-widget input#u-rate-6:checked ~ label {
+  color: #fd4;
+  text-shadow: 0 0 20px black;
+}
+
+/* CONTENT RATINGS */
+form .container .c-star-widget {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+}
+
+form .container .c-star-widget input {
+  display: none;
+}
+
+.c-star-widget label {
+  font-size: 20px;
+  color: #444;
+  padding: 5px;
+  transition: all 0.2s ease;
+}
+
+.c-star-widget input:not(:checked) ~ label:hover,
+.c-star-widget input:not(:checked) ~ label:hover ~ label {
+  color: #fd4;
+}
+
+.c-star-widget input:checked ~ label {
+  color: #fd4;
+}
+
+.c-star-widget input#c-rate-10:checked  ~ label, .c-star-widget input#c-rate-9:checked ~ label, .c-star-widget input#c-rate-8:checked ~ label, .c-star-widget input#c-rate-7:checked ~ label, .c-star-widget input#c-rate-6:checked ~ label {
+  color: #fd4;
+  text-shadow: 0 0 20px black;
+}
 

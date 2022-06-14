@@ -122,52 +122,110 @@
           <hr class="horizontal">
         </div>
 
-        <form>
-          <div class="form-group">
-            <label>Design</label><br>
-            <div class="star-container">
-              <button class="star">&#9734</button>
-              <button class="star">&#9734</button>
-              <button class="star">&#9734</button>
-              <button class="star">&#9734</button>
-              <button class="star">&#9734</button>
-              <button class="star">&#9734</button>
-              <button class="star">&#9734</button>
-              <button class="star">&#9734</button>
-              <button class="star">&#9734</button>
-              <button class="star">&#9734</button>
+        <form method="POST">
+          {% csrf_token %}
+          <p>Design</p>
+          <div class="container">
+            <div class="d-star-widget">
+              <input type="radio" name="d-rate" value="10" id="d-rate-10" required>
+              <label for="d-rate-10" class="fas fa-star"></label>              
+              
+              <input type="radio" name="d-rate" value="9" id="d-rate-9" required>
+              <label for="d-rate-9" class="fas fa-star"></label>
+              
+              <input type="radio" name="d-rate" value="8" id="d-rate-8" required>
+              <label for="d-rate-8" class="fas fa-star"></label>              
+              
+              <input type="radio" name="d-rate" value="7" id="d-rate-7" required>
+              <label for="rate-7" class="fas fa-star"></label>
+              
+              <input type="radio" name="d-rate" value="6" id="d-rate-6" required>
+              <label for="d-rate-6" class="fas fa-star"></label>
+              
+              <input type="radio" name="d-rate" value="5" id="d-rate-5" required>
+              <label for="d-rate-5" class="fas fa-star"></label>
+
+              <input type="radio" name="d-rate" value="4" id="d-rate-4" required>
+              <label for="d-rate-4" class="fas fa-star"></label>
+              
+              <input type="radio" name="d-rate" value="3" id="d-rate-3" required>
+              <label for="d-rate-3" class="fas fa-star"></label>
+              
+              <input type="radio" name="d-rate" value="2" id="d-rate-2" required>
+              <label for="d-rate-2" class="fas fa-star"></label>
+              
+              <input type="radio" name="d-rate" value="1" id="d-rate-1" required>
+              <label for="d-rate-1" class="fas fa-star"></label>
             </div>
           </div>
 
-          <div class="form-group">
-            <label>Usability</label><br>
-            <div class="star-container">
-              <button class="star">&#9734</button>
-              <button class="star">&#9734</button>
-              <button class="star">&#9734</button>
-              <button class="star">&#9734</button>
-              <button class="star">&#9734</button>
-              <button class="star">&#9734</button>
-              <button class="star">&#9734</button>
-              <button class="star">&#9734</button>
-              <button class="star">&#9734</button>
-              <button class="star">&#9734</button>
+          <p style="margin-top: -30px;">Usability</p>
+          <div class="container">
+            <div class="u-star-widget">
+              <input type="radio" name="u-rate" value="10" id="u-rate-10" required>
+              <label for="u-rate-10" class="fas fa-star"></label>              
+              
+              <input type="radio" name="u-rate" value="9" id="u-rate-9" required>
+              <label for="u-rate-9" class="fas fa-star"></label>
+              
+              <input type="radio" name="u-rate" value="8" id="u-rate-8" required>
+              <label for="u-rate-8" class="fas fa-star"></label>              
+              
+              <input type="radio" name="u-rate" value="7" id="u-rate-7" required>
+              <label for="u-rate-7" class="fas fa-star"></label>
+              
+              <input type="radio" name="u-rate" value="6" id="u-rate-6" required>
+              <label for="u-rate-6" class="fas fa-star"></label>
+              
+              <input type="radio" name="u-rate" value="5" id="u-rate-5" required>
+              <label for="u-rate-5" class="fas fa-star"></label>
+
+              <input type="radio" name="u-rate" value="4" id="u-rate-4" required>
+              <label for="u-rate-4" class="fas fa-star"></label>
+              
+              <input type="radio" name="u-rate" value="3" id="u-rate-3" required>
+              <label for="u-rate-3" class="fas fa-star"></label>
+              
+              <input type="radio" name="u-rate" value="2" id="u-rate-2" required>
+              <label for="u-rate-2" class="fas fa-star"></label>
+              
+              <input type="radio" name="u-rate" value="1" id="u-rate-1" required>
+              <label for="u-rate-1" class="fas fa-star"></label>
             </div>
           </div>
 
-          <div class="form-group">
-            <label>Content</label><br>
-            <div class="star-container">
-              <button class="star">&#9734</button>
-              <button class="star">&#9734</button>
-              <button class="star">&#9734</button>
-              <button class="star">&#9734</button>
-              <button class="star">&#9734</button>
-              <button class="star">&#9734</button>
-              <button class="star">&#9734</button>
-              <button class="star">&#9734</button>
-              <button class="star">&#9734</button>
-              <button class="star">&#9734</button>
+          <p style="margin-top: -30px;">Content</p>
+          <div class="container">
+            <div class="c-star-widget">
+              <input type="radio" name="c-rate" value="10" id="c-rate-10" required>
+              <label for="c-rate-10" class="fas fa-star"></label>              
+              
+              <input type="radio" name="c-rate" value="9" id="c-rate-9" required>
+              <label for="c-rate-9" class="fas fa-star"></label>
+            
+              <input type="radio" name="c-rate" value="8" id="c-rate-8" required>
+              <label for="c-rate-8" class="fas fa-star"></label>              
+              
+              <input type="radio" name="c-rate" value="7" id="c-rate-7" required>
+              <label for="c-rate-7" class="fas fa-star"></label>
+              
+              <input type="radio" name="c-rate" value="6" id="c-rate-6" required>
+              <label for="c-rate-6" class="fas fa-star"></label>
+              
+              <input type="radio" name="c-rate" value="5" id="c-rate-5" required>
+              <label for="c-rate-5" class="fas fa-star"></label>
+
+              <input type="radio" name="c-rate" value="4" id="c-rate-4" required>
+              <label for="c-rate-4" class="fas fa-star"></label>
+              
+              <input type="radio" name="c-rate" value="3" id="c-rate-3" required>
+              <label for="c-rate-3" class="fas fa-star"></label>
+              
+              <input type="radio" name="c-rate" value="2" id="c-rate-2" required>
+              <label for="c-rate-2" class="fas fa-star"></label>
+              
+              <input type="radio" name="c-rate" value="1" id="c-rate-1" required>
+              <label for="c-rate-1" class="fas fa-star"></label>
             </div>
           </div>
 
