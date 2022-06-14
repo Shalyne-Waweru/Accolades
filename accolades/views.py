@@ -192,6 +192,7 @@ def index(req):
 
 
 # SINGLE PROJECT FUNCTION
+@login_required(login_url='/login')
 def singleProject(request, id):
    '''
    View function that renders a single project page and its data
