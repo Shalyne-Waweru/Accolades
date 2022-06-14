@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Charm&display=swap');
+
+body {
+  background-color: #131313;
+  background-image: linear-gradient(180deg, #131313, gray ,#B5903F);
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* .login img {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+} */
+
+/* Form Section */
+form {
+  position: absolute;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border-radius: 5px;
+  width: 500px;
+}
+
+.login form img {
+  margin-left: 200px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  width: 100px;
+  height: 100px;
+}
+
+.logo-name{
+  color: #FFC910;
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: -23px;
+}
+
+.form-group {
+  margin: 30px;
+}
+
+.form-group input {
+  background-color: #ffc7101b;
+}
+
+.form-group input:focus{
+  outline: none !important;
+  background-color: white;
+  border: 1px solid lightgray;
+  box-shadow: 0 0 0 0.2rem lightgray;
+}
+
+input {
+  border: 1px solid lightgray;
+  background-color: #E4EDFD;
+  width: 100%;
+  height: 40px;
+  border-radius:5px;
+}
+
+input:focus {
+  outline: none !important;
+  background-color: white;
+  box-shadow: 0 0 0 0.2rem #131313;
+}
+
+.auth-login-btn {
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  color: white;
+  background-color: #131313;
+  font-family: 'Charm', 'sans-serif';
+  font-weight: bold;
+  width: 88%;
+  cursor: pointer;
+  margin: 30px;
+  margin-top: 10px;
+}
+
+.auth-login-btn:hover {
+  background-color: gray;
+}
+
+.auth-login-btn a, .auth-login-btn a:visited {
+  color: white;
+  text-decoration: none;
+}
+
+.redirect-txt a{
+  font-weight: bold;
+  color: black;
+}
+
+form p {
+  text-align: center;
+  margin-bottom: 30px;
+}
