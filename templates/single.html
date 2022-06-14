@@ -2,6 +2,17 @@
 {% load static %}
 
 {% block content %}
+{% if messages %}
+{% for message in messages %}
+
+<div class="alert alert-dark alert-dismissible text-center fade show m-0" role="alert" style="margin-top: 30px;">
+  {{message}}
+  <span class="close" data-dismiss="modal">&times;</span>
+</div>
+
+{% endfor %}
+{% endif %}
+
 <div class="single-project">
   <div class="container">
     <div class="card">
@@ -54,67 +65,49 @@
       <div class="voting">
         <div class="header">
           <p><strong>VOTES</strong></p>
-          <p><strong>3 voter(s)</strong></p>
+          <p><strong>{{rates.count}} voter(s)</strong></p>
         </div>
 
         <hr>
 
-        <div class="voter-info">
-          <div class="dev-deets">
-            <img src="{% static 'images/person.jpeg'%}" alt="Developer Image">
-            <p>Dev Name</p>
-          </div>
+        {% if rates %}
+          {% for rate in rates %}
+            <div class="voter-info">
+              <div class="dev-deets">
+                <img src="{{rate.user.profile.profile_pic.url}}" alt="Developer Image">
+                <p>{{rate.user.username}}</p>
+              </div>
 
-          <div class="ratings">
-            <div class="rates-info">
-              <p class="design-circle" style="width: 55px; height: 55px; padding: 8px;"><strong>7.84</strong></p>
-              <p><strong>DESIGN</strong></p>
+              <div class="ratings">
+                <div class="rates-info">
+                  <p class="design-circle" style="width: 55px; height: 55px; border-top: 3px solid red; transform: rotate(0deg); text-align: center;">
+                    <strong>{{rate.design_rate}}</strong></p>
+                  <p><strong>DESIGN</strong></p>
+                </div>
+
+                <div class="rates-info">
+                  <p class="usability-circle" style="width: 55px; height: 55px; border-top: 3px solid #0082BC; transform: rotate(0deg); text-align: center;"><strong>{{rate.usability_rate}}</strong></p>
+                  <p><strong>USABILITY</strong></p>
+                </div>
+
+                <div class="rates-info">
+                  <p class="content-circle" style="width: 55px; height: 55px; border-top: 3px solid #71A84F; transform: rotate(0deg); text-align: center;"><strong>{{rate.content_rate}}</strong></p>
+                  <p><strong>CONTENT</strong></p>
+                </div>
+
+              </div>
             </div>
 
-            <div class="rates-info">
-              <p class="usability-circle" style="width: 55px; height: 55px; padding: 8px;"><strong>7.74</strong></p>
-              <p><strong>USABILITY</strong></p>
-            </div>
+            <hr>
+          {% endfor %}
+        {% else %}
+        <h5 style="text-align: center;">There are no votes yet.</h5>
+        {% endif %}
 
-            <div class="rates-info">
-              <p class="content-circle" style="width: 55px; height: 55px; padding: 8px;"><strong>7.64</strong></p>
-              <p><strong>CONTENT</strong></p>
-            </div>
-
-          </div>
-        </div>
-
-        <hr>
-
-        <div class="voter-info">
-          <div class="dev-deets">
-            <img src="{% static 'images/person.jpeg'%}" alt="Developer Image">
-            <p>Dev Name</p>
-          </div>
-
-          <div class="ratings">
-            <div class="rates-info">
-              <p class="design-circle" style="width: 55px; height: 55px; padding: 8px;"><strong>7.84</strong></p>
-              <p><strong>DESIGN</strong></p>
-            </div>
-
-            <div class="rates-info">
-              <p class="usability-circle" style="width: 55px; height: 55px; padding: 8px;"><strong>7.74</strong></p>
-              <p><strong>USABILITY</strong></p>
-            </div>
-
-            <div class="rates-info">
-              <p class="content-circle" style="width: 55px; height: 55px; padding: 8px;"><strong>7.64</strong></p>
-              <p><strong>CONTENT</strong></p>
-            </div>
-
-          </div>
-        </div>
-
-        <hr>
 
       </div>
 
+      {% if project.user.username != request.user.username %}
       <div class="add-votes">
         <div class="section-header">
           <hr class="horizontal">
@@ -128,32 +121,32 @@
           <div class="container">
             <div class="d-star-widget">
               <input type="radio" name="d-rate" value="10" id="d-rate-10" required>
-              <label for="d-rate-10" class="fas fa-star"></label>              
-              
+              <label for="d-rate-10" class="fas fa-star"></label>
+
               <input type="radio" name="d-rate" value="9" id="d-rate-9" required>
               <label for="d-rate-9" class="fas fa-star"></label>
-              
+
               <input type="radio" name="d-rate" value="8" id="d-rate-8" required>
-              <label for="d-rate-8" class="fas fa-star"></label>              
-              
+              <label for="d-rate-8" class="fas fa-star"></label>
+
               <input type="radio" name="d-rate" value="7" id="d-rate-7" required>
               <label for="rate-7" class="fas fa-star"></label>
-              
+
               <input type="radio" name="d-rate" value="6" id="d-rate-6" required>
               <label for="d-rate-6" class="fas fa-star"></label>
-              
+
               <input type="radio" name="d-rate" value="5" id="d-rate-5" required>
               <label for="d-rate-5" class="fas fa-star"></label>
 
               <input type="radio" name="d-rate" value="4" id="d-rate-4" required>
               <label for="d-rate-4" class="fas fa-star"></label>
-              
+
               <input type="radio" name="d-rate" value="3" id="d-rate-3" required>
               <label for="d-rate-3" class="fas fa-star"></label>
-              
+
               <input type="radio" name="d-rate" value="2" id="d-rate-2" required>
               <label for="d-rate-2" class="fas fa-star"></label>
-              
+
               <input type="radio" name="d-rate" value="1" id="d-rate-1" required>
               <label for="d-rate-1" class="fas fa-star"></label>
             </div>
@@ -163,32 +156,32 @@
           <div class="container">
             <div class="u-star-widget">
               <input type="radio" name="u-rate" value="10" id="u-rate-10" required>
-              <label for="u-rate-10" class="fas fa-star"></label>              
-              
+              <label for="u-rate-10" class="fas fa-star"></label>
+
               <input type="radio" name="u-rate" value="9" id="u-rate-9" required>
               <label for="u-rate-9" class="fas fa-star"></label>
-              
+
               <input type="radio" name="u-rate" value="8" id="u-rate-8" required>
-              <label for="u-rate-8" class="fas fa-star"></label>              
-              
+              <label for="u-rate-8" class="fas fa-star"></label>
+
               <input type="radio" name="u-rate" value="7" id="u-rate-7" required>
               <label for="u-rate-7" class="fas fa-star"></label>
-              
+
               <input type="radio" name="u-rate" value="6" id="u-rate-6" required>
               <label for="u-rate-6" class="fas fa-star"></label>
-              
+
               <input type="radio" name="u-rate" value="5" id="u-rate-5" required>
               <label for="u-rate-5" class="fas fa-star"></label>
 
               <input type="radio" name="u-rate" value="4" id="u-rate-4" required>
               <label for="u-rate-4" class="fas fa-star"></label>
-              
+
               <input type="radio" name="u-rate" value="3" id="u-rate-3" required>
               <label for="u-rate-3" class="fas fa-star"></label>
-              
+
               <input type="radio" name="u-rate" value="2" id="u-rate-2" required>
               <label for="u-rate-2" class="fas fa-star"></label>
-              
+
               <input type="radio" name="u-rate" value="1" id="u-rate-1" required>
               <label for="u-rate-1" class="fas fa-star"></label>
             </div>
@@ -198,32 +191,32 @@
           <div class="container">
             <div class="c-star-widget">
               <input type="radio" name="c-rate" value="10" id="c-rate-10" required>
-              <label for="c-rate-10" class="fas fa-star"></label>              
-              
+              <label for="c-rate-10" class="fas fa-star"></label>
+
               <input type="radio" name="c-rate" value="9" id="c-rate-9" required>
               <label for="c-rate-9" class="fas fa-star"></label>
-            
+
               <input type="radio" name="c-rate" value="8" id="c-rate-8" required>
-              <label for="c-rate-8" class="fas fa-star"></label>              
-              
+              <label for="c-rate-8" class="fas fa-star"></label>
+
               <input type="radio" name="c-rate" value="7" id="c-rate-7" required>
               <label for="c-rate-7" class="fas fa-star"></label>
-              
+
               <input type="radio" name="c-rate" value="6" id="c-rate-6" required>
               <label for="c-rate-6" class="fas fa-star"></label>
-              
+
               <input type="radio" name="c-rate" value="5" id="c-rate-5" required>
               <label for="c-rate-5" class="fas fa-star"></label>
 
               <input type="radio" name="c-rate" value="4" id="c-rate-4" required>
               <label for="c-rate-4" class="fas fa-star"></label>
-              
+
               <input type="radio" name="c-rate" value="3" id="c-rate-3" required>
               <label for="c-rate-3" class="fas fa-star"></label>
-              
+
               <input type="radio" name="c-rate" value="2" id="c-rate-2" required>
               <label for="c-rate-2" class="fas fa-star"></label>
-              
+
               <input type="radio" name="c-rate" value="1" id="c-rate-1" required>
               <label for="c-rate-1" class="fas fa-star"></label>
             </div>
@@ -232,6 +225,7 @@
           <button class="submit-btn" type="submit">SUBMIT VOTE</button>
         </form>
       </div>
+      {% endif %}
     </div>
 
 

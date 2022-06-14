@@ -1,4 +1,3 @@
-import profile
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
@@ -54,3 +53,16 @@ class Project(models.Model):
   def get_project_by_id(cls, id):
     project = cls.objects.filter(id = id).first()
     return project
+
+
+class Rates(models.Model):
+  user = models.ForeignKey(User,on_delete=models.CASCADE,related_name='ratings')
+  project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='project')
+  design_rate = models.IntegerField(default=0, blank=True)
+  usability_rate = models.IntegerField(default=0, blank=True)
+  content_rate = models.IntegerField(default=0, blank=True)
+  date = models.DateTimeField(auto_now_add=True)
+
+  def __str__(self):
+    return self.project.title
+

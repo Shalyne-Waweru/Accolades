@@ -1,5 +1,6 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect, render
+from django.urls import reverse
 from .forms import *
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
@@ -198,6 +199,25 @@ def singleProject(request, id):
 
    project = Project.get_project_by_id(id)
    print(project)
+
+   # Query the database to get all the votes of a particular project
+   rates = Rates.objects.filter(project=id).all()
+   print(rates)
+
+   if request.method == "POST":
+    design_rate = request.POST.get('d-rate')
+    usability_rate = request.POST.get('u-rate')
+    content_rate = request.POST.get('c-rate')
+
+    print(design_rate)
+    print(usability_rate)
+    print(content_rate)
+    print(project.id)
+
+    new_vote = Rates(user=request.user, project=project, design_rate=design_rate, usability_rate=usability_rate, content_rate=content_rate )
+    new_vote.save()
+    messages.success(request, "Thanks " + request.user.username + ". Your Vote Has Been Added Successfully! ")
+    return redirect(reverse('singleProjectPage', args=[id]))
 
    return render(request,"single.html", locals())
 
